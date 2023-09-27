@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Windows Custom Cursor</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; style-src 'self' 'unsafe-inline'"
+    />
+    <link href="./style.scss" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div id="editor">
+        <div id="preview">
+          <div id="hotspot-editor">
+            <div id="dot">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><path d="M18 12.998h-5v5a1 1 0 0 1-2 0v-5H6a1 1 0 0 1 0-2h5v-5a1 1 0 0 1 2 0v5h5a1 1 0 0 1 0 2z" fill="currentColor"></path></svg>
+            </div>
+          </div>
+          <img src="" id="image">
+          <div id="drop-message">
+            Drop here to load image
+          </div>
+        </div>
+        <div id="size-editor">
+          <input type="range" min="1" step="1" max="256" />
+          <button type="button" id="btnSizeEditorReset">DEFAULT</button>
+        </div>
+      </div>
+      <div id="config" class="flex">
+        <div class="config-section">
+          <div class="section-title">Cursor Image</div>
+          <div class="section-subtitle">Choose PNG or SVG image, or drag it into editor</div>
+          <div class="section-content">
+            <div class="form-group flex">
+              <div>
+                <input type="file" id="inputFileImage">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="config-section">
+          <div class="section-title">Cursor Size</div>
+          <div class="section-subtitle">Max size is 256x256px, will be auto adjust if it exceeds the limit.</div>
+          <div class="section-content">
+            <div style="display: flex; margin-top: .5rem;">
+              <div class="form-group flex">
+                <label class="form-label">Width</label>
+                <div><span id="widthInfo">128</span>px</div>
+              </div>
+              <div class="form-group flex">
+                <label class="form-label">Height</label>
+                <div><span id="heightInfo">128</span>px</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="config-section">
+          <div class="section-title">Hotspot</div>
+          <div class="section-subtitle">Click on image or drag the hotspot, value will be auto-rounded when setting cursor.</div>
+          <div class="section-content">
+            <div style="display: flex; margin: 1rem 0 .5rem;">
+              <div class="form-group flex">
+                <label class="form-label">Hotspot X</label>
+                <input type="text" id="hotspotInfoX" disabled style="max-width: 80%;">
+              </div>
+              <div class="form-group flex">
+                <label class="form-label">Hotspot Y</label>
+                <input type="text" id="hotspotInfoY" disabled style="max-width: 80%;">
+              </div>
+            </div>
+            <button type="button" id="btnHotspotCenter" style="font-size: .75rem;">CENTER</button>
+          </div>
+        </div>
+        <div class="config-section" style="margin-top: 1.5rem;">
+          <div class="section-content">
+            <div class="ak-checkbox">
+              <input 
+                type="checkbox" 
+                id="cbKeepCursor"
+                name="keep_cursor"
+                checked
+                >
+              <label for="cbKeepCursor" class="cb"></label>
+              <label for="cbKeepCursor" class="label">Keep custom cursor on reboot</label>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <button type="button" id="btnCursorSet">SET CURSOR</button>
+          &nbsp;
+          <button type="button" id="btnCursorReset">RESET</button>
+        </div>
+      </div>
+    </div>
+    
+    <script type="module" src="./src/index.js"></script>
+  </body>
+</html>

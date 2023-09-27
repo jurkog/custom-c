@@ -1,0 +1,483 @@
+@import "./reset.css";
+
+input,
+textarea,
+select {
+  all: revert;
+  max-width: 100%;
+}
+
+@keyframes jelly {
+  from {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+/* Add styles here to customize the appearance of your app */
+body {
+  display: flex;
+  flex-direction: column;
+  font-family:
+    Roboto,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Segoe UI",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Open Sans",
+    sans-serif;
+  color: #d1d5da;
+  background-color: #2f3241;
+  font-size: 16px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+code {
+  font-weight: 600;
+  padding: 3px 5px;
+  border-radius: 2px;
+  background-color: #26282e;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
+  font-size: 85%;
+}
+
+a {
+  color: #9feaf9;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover {
+  border-bottom: 1px solid;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 15px 30px 0 30px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+@media (min-width: 840px) {
+  .container {
+    width: 100%;
+  }
+}
+
+.versions {
+  margin: 0 auto;
+  float: none;
+  clear: both;
+  overflow: hidden;
+  font-family: "Menlo", "Lucida Console", monospace;
+  color: #c2f5ff;
+  line-height: 1;
+  transition: all 0.3s;
+}
+
+.versions li {
+  display: block;
+  float: left;
+  border-right: 1px solid rgba(194, 245, 255, 0.4);
+  padding: 0 20px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.versions li:last-child {
+  border: none;
+}
+
+.hero-logo {
+  margin-top: -0.4rem;
+  transition: all 0.3s;
+}
+
+@media (max-width: 840px) {
+  .versions {
+    display: none;
+  }
+
+  .hero-logo {
+    margin-top: -1.5rem;
+  }
+}
+
+.hero-text {
+  font-weight: 400;
+  color: #c2f5ff;
+  text-align: center;
+  margin-top: -0.5rem;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 660px) {
+  .hero-logo {
+    display: none;
+  }
+
+  .hero-text {
+    margin-top: 20px;
+  }
+}
+
+.hero-tagline {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.links a {
+  font-weight: 500;
+}
+
+.links .link-item {
+  padding: 0 4px;
+}
+
+@media (max-width: 480px) {
+  .links {
+    flex-direction: column;
+    line-height: 32px;
+  }
+
+  .links .link-dot {
+    display: none;
+  }
+}
+
+.line-spacing {
+  line-height: 2;
+}
+
+#imageDropZone {
+  margin: 1rem 0;
+  width: 256px;
+  height: 256px;
+  border: 1px rgba(255, 255, 255, 0.75) dashed;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    outline: 1px solid rgba(255, 255, 255, 0.75);
+  }
+}
+
+#imageDropZone.active {
+  border: 1px rgba(255, 214, 80, 0.842) dashed;
+  background: rgba(255, 230, 43, 0.487);
+}
+
+button {
+  background: #5967c7;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+button:hover {
+  transition: all 0.5s ease;
+  background: #6677e7;
+}
+
+.ak-checkbox {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  .cb {
+    position: relative;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #6677e7;
+    border-radius: 3px;
+    transition: background 0.1s ease;
+    cursor: pointer;
+    margin-bottom: 0;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 5px;
+      width: 5px;
+      height: 11px;
+      opacity: 0;
+      transform: rotate(45deg) scale(0);
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transition: all 0.2s ease;
+      transition-delay: 0.15s;
+    }
+  }
+  .label {
+    margin-left: 0.5rem;
+    margin-bottom: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+  input[type="checkbox"] {
+    display: none;
+    &:checked ~ .cb {
+      border-color: transparent;
+      background: #6677e7;
+      animation: jelly 0.6s ease;
+    }
+    &:checked ~ .cb:after {
+      opacity: 1;
+      transform: rotate(45deg) scale(1);
+    }
+
+    &:disabled ~ .cb {
+      opacity: 0.5;
+    }
+  }
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  padding-right: 0;
+  gap: 1.5rem;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.flex {
+  flex: 1;
+}
+
+#editor {
+  position: relative;
+  margin-top: -2rem;
+  width: 256px;
+  height: 256px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #preview {
+    user-select: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 256px;
+    height: 256px;
+    background-color: #eee;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" fill-opacity=".25" ><rect x="200" width="200" height="200" /><rect y="200" width="200" height="200" /></svg>');
+    background-size: 20px 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.25s ease-out;
+
+    #drop-message {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 190, 69, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 2rem;
+      text-align: center;
+      color: white;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.active {
+      #drop-message {
+        opacity: 1;
+      }
+    }
+
+    #image {
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
+      outline: 2px solid #ff000063;
+      user-select: none;
+    }
+
+    #hotspot-editor {
+      position: absolute;
+      /* background: rgba(255, 0, 0, 0.216); */
+      width: 32px;
+      height: 32px;
+
+      #dot {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 1px;
+        width: 1px;
+        box-shadow: 0 5px 0 red;
+        overflow: visible;
+
+        svg {
+          transform: translateX(-50%) translateY(-50%);
+          width: 24px;
+          height: 24px;
+          color: red;
+          opacity: 0.5;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+#size-editor {
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 256px;
+  width: 100%;
+  padding: 0.25rem 0.25rem;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  #icon {
+    color: #333;
+    width: 24px;
+    text-align: center;
+  }
+  input {
+    max-width: 80%;
+    width: 100%;
+    margin-right: 0.5rem;
+    margin-left: 0.25rem;
+    appearance: none;
+    height: 14px;
+    border-radius: 10px;
+    background-color: #ededed;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  input::-webkit-slider-thumb {
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    background-color: #4070f4;
+    box-shadow: -208px 0 0 200px #4070f4;
+  }
+  .slide-value {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    padding: 0.15rem 0.5rem;
+    min-width: 20px;
+  }
+  #btnSizeEditorReset {
+    font-size: 0.65rem;
+  }
+}
+
+#config {
+  /* background: rgba(0, 0, 0, 0.07); */
+  background: #252b30;
+  padding: 1rem 1.5rem;
+  height: 100%;
+}
+
+.config-section {
+  margin-bottom: 1.5rem;
+  .section-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #e2e5ea;
+  }
+  .section-subtitle {
+    font-size: 0.75rem;
+    margin: 0.25rem 0 0.5rem;
+  }
+}
+
+.form-group {
+  .form-label {
+    display: block;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.notyf__toast {
+  max-width: 500px !important;
+}
