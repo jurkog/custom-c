@@ -23,5 +23,9 @@
   "homepage": "https://github.com/jurkog/custom-c#readme",
   "devDependencies": {
     "electron": "^26.2.3"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
