@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 
@@ -17,7 +18,21 @@ module.exports = {
                 resolve: {
                     extensions: [".js", ".jsx", ".json"]
                 }
+            },
+            {
+                // loads .html files
+                test: /\.(html)$/,
+                include: [path.resolve(__dirname, "app/src")],
+                use: {
+                    loader: "html-loader"
+                }
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, "index.html"),
+            filename: "index.html"
+        })
+    ]
 };
