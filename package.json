@@ -2,7 +2,7 @@
   "name": "custom-cursor",
   "version": "1.0.0",
   "description": "A minimal Electron application",
-  "main": "./out/main/main.js",
+  "main": "./src/main/main.js",
   "author": "Juraj Guba",
   "directories": {
     "doc": "docs",
