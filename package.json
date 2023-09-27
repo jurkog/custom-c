@@ -1,0 +1,27 @@
+{
+  "name": "custom-cursor",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "./out/main/main.js",
+  "author": "Juraj Guba",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jurkog/custom-c.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jurkog/custom-c/issues"
+  },
+  "homepage": "https://github.com/jurkog/custom-c#readme",
+  "devDependencies": {
+    "electron": "^26.2.3"
+  }
+}
