@@ -3,16 +3,13 @@ const path = require("path");
 
 
 module.exports = {
-    mode: "development",
+    
     entry: "./src/renderer/index.jsx",
     output: {
         path: path.resolve(__dirname, "out"), 
         filename: "bundle.js"
     },
-    devServer: {
-        host: "localhost",
-        port: "40992"
-    },
+   
     module: {
         rules: [
             // loads .js/jsx/json files
