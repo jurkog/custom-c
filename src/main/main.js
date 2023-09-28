@@ -13,8 +13,8 @@ const { electronApp, optimizer } = require('@electron-toolkit/utils')
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
-//const  Cursor  =  require('./cursor.js');
-//const  Registry  =  require('./registry.js');
+const  Cursor  =  require('./cursor.js');
+const  Registry  =  require('./registry.js');
 //import Registry from './registry.js';
 
 // fix: context menu shown behind devtools
@@ -30,7 +30,7 @@ function createWindow() {
     height: 580,
     minHeight: 580,
     show: false,
-    autoHideMenuBar: true,
+   // autoHideMenuBar: true,
     ...(process.platform === 'linux'
       ? {
           icon: path.join(__dirname, '../resources/icon.png')

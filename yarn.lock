@@ -1004,6 +1004,11 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
+"@electron-toolkit/preload@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@electron-toolkit/preload/-/preload-2.0.0.tgz#1b704c4c4643ae1d960835db196625e17c9dcf4e"
+  integrity sha512-zpZDzbqJTZQC5d4LRs2EKruKWnqah+T75s+niBYFemYLtiW5TTZcWi3Q8UxHqnwTudDMuWJb233aaS2yjx3Xiw==
+
 "@electron-toolkit/utils@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@electron-toolkit/utils/-/utils-2.0.1.tgz#ccf0406bd745713d903ac7ca1d3a070d8d718750"
