@@ -110,11 +110,11 @@ const onPageReady = async () => {
   const cursorReset = async () => {
     let res = await window.api.cursorReset();
     if (!res.success) {
-      notyf.error(result.message);
+      notyf.error(res.message);
       return;
     }
 
-    notyf.success(result.message);
+    notyf.success(res.message);
   }
   const cursorSet = async (filepath) => {
     if (!filepath) {
