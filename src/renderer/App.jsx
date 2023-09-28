@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
+import {onPageReady} from './src'
 const App = () => {
+
+    useEffect(()=>{
+
+        onPageReady()
+    },[])
   return (
     <div id='app'>
 
@@ -75,8 +81,8 @@ const App = () => {
                 name="keep_cursor"
                 checked
                 />
-              <label for="cbKeepCursor" className="cb"></label>
-              <label for="cbKeepCursor" className="label">Keep custom cursor on reboot</label>
+              <label htmlFor="cbKeepCursor" className="cb"></label>
+              <label htmlFor="cbKeepCursor" className="label">Keep custom cursor on reboot</label>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 const {
     shell,
     app,
-    BrowserWindow
+    BrowserWindow,ipcMain
 } = require("electron");
 
 const fs = require('fs')
@@ -93,41 +93,41 @@ app.on("window-all-closed", function () {
 });
 
 
-// ipcMain.handle('cursor:reset', async function (e) {
-//     try {
-//       Registry.write(Registry.HKEY.HKEY_CURRENT_USER, "Control Panel\\Cursors", "Arrow", Registry.VALUE_TYPE.REG_EXPAND_SZ , "%SystemRoot%\\cursors\\aero_arrow.cur");
-//       Cursor.restoreSystemCursor();
-//     } catch (error) {
-//       console.log(error);
-//       return {
-//         success: false,
-//         message: error.toString(),
-//       };
-//     }
+ipcMain.handle('cursor:reset', async function (e) {
+    try {
+      Registry.write(Registry.HKEY.HKEY_CURRENT_USER, "Control Panel\\Cursors", "Arrow", Registry.VALUE_TYPE.REG_EXPAND_SZ , "%SystemRoot%\\cursors\\aero_arrow.cur");
+      Cursor.restoreSystemCursor();
+    } catch (error) {
+      console.log(error);
+      return {
+        success: false,
+        message: error.toString(),
+      };
+    }
 
-//     return {
-//       success: true,
-//       message: 'Cursor reset successfuly',
-//     };
-//   });
+    return {
+      success: true,
+      message: 'Cursor reset successfuly',
+    };
+  });
 
-//   ipcMain.handle('cursor:set', async (e, data) => {
-//     try {
-//       let cursorPath = path.resolve("./custom.cur");
-//       let cursorData = await Cursor.imageToCursorData(data.path, data);
-//       fs.writeFileSync(cursorPath, cursorData);
-//       Cursor.setFromFile(cursorPath, Cursor.cursorType.Normal);
-//       Registry.write(Registry.HKEY.HKEY_CURRENT_USER, "Control Panel\\Cursors", "Arrow", Registry.VALUE_TYPE.REG_EXPAND_SZ , data.permanent && fs.existsSync(cursorPath) ? cursorPath : "%SystemRoot%\\cursors\\aero_arrow.cur");
-//     } catch (error) {
-//       console.log(error);
-//       return {
-//         success: false,
-//         message: error.toString(),
-//       };
-//     }
+  ipcMain.handle('cursor:set', async (e, data) => {
+    try {
+      let cursorPath = path.resolve("./custom.cur");
+      let cursorData = await Cursor.imageToCursorData(data.path, data);
+      fs.writeFileSync(cursorPath, cursorData);
+      Cursor.setFromFile(cursorPath, Cursor.cursorType.Normal);
+      Registry.write(Registry.HKEY.HKEY_CURRENT_USER, "Control Panel\\Cursors", "Arrow", Registry.VALUE_TYPE.REG_EXPAND_SZ , data.permanent && fs.existsSync(cursorPath) ? cursorPath : "%SystemRoot%\\cursors\\aero_arrow.cur");
+    } catch (error) {
+      console.log(error);
+      return {
+        success: false,
+        message: error.toString(),
+      };
+    }
 
-//     return {
-//       success: true,
-//       message: 'Cursor set successfuly',
-//     };
-//   });
+    return {
+      success: true,
+      message: 'Cursor set successfuly',
+    };
+  });
