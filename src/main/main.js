@@ -18,7 +18,7 @@ function createWindow() {
     });
 
     // Load our HTML file
-    window.loadFile("index.html");
+    window.loadFile("out/index.html");
 }
 
 // This method is called when Electron

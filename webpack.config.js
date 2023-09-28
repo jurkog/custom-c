@@ -22,7 +22,7 @@ module.exports = {
             {
                 // loads .html files
                 test: /\.(html)$/,
-                include: [path.resolve(__dirname, "app/src")],
+                include: [path.resolve(__dirname, "src/renderer")],
                 use: {
                     loader: "html-loader"
                 }
@@ -31,7 +31,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "index.html"),
+            template: path.resolve(__dirname, "src/renderer/index.html"),
             filename: "index.html"
         })
     ]
