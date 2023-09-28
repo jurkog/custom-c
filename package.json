@@ -23,6 +23,7 @@
   "homepage": "https://github.com/jurkog/custom-c#readme",
   "devDependencies": {
     "babel-loader": "^9.1.3",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.8.1",
     "electron": "^26.2.3",
     "html-loader": "^4.2.0",
