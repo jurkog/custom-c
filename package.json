@@ -4,16 +4,39 @@
   "description": "A minimal Electron application",
   "main": "./src/main/main.js",
   "author": "Juraj Guba",
-  "directories": {
-    "doc": "docs",
-    "test": "test"
-  },
   "scripts": {
     "dev-server": "webpack serve --mode development --config ./webpack.development.js",
     "dev": "cross-env NODE_ENV=development electron .",
     "preprod": "webpack --mode production --config ./webpack.production.js",
     "prod": "cross-env NODE_ENV=production electron .",
-    "start": "concurrently \"npm run dev-server\"  \"npm run dev\""
+    "start": "concurrently \"npm run dev-server\"  \"npm run dev\"",
+    "postinstall": "electron-builder install-app-deps",
+    "pack": "electron-builder --dir",
+    "dist": "npm run preprod && electron-builder",
+    "dist-mac": "npm run preprod && electron-builder --mac",
+    "dist-linux": "npm run preprod && electron-builder --linux",
+    "dist-windows": "npm run preprod && electron-builder --windows"
+  },
+  "build": {
+    "productName": "custom-cursor",
+    "appId": "com.custom.cursor",
+    "directories": {
+      "buildResources": "resources"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "msi"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "rpm",
+        "snap",
+        "AppImage"
+      ]
+    }
   },
   "repository": {
     "type": "git",
@@ -31,6 +54,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.8.1",
     "electron": "^26.2.3",
+    "electron-builder": "^24.6.4",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "sass": "^1.68.0",
