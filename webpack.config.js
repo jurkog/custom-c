@@ -56,6 +56,7 @@ module.exports = {
         ]
     },
     plugins: [
+        
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "src/renderer/index.html"),
             filename: "index.html"
