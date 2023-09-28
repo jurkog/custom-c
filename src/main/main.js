@@ -7,10 +7,6 @@ const {
 const fs = require('fs')
 const path = require('path')
 
-const koffi = require('koffi');
-const kernel32Lib = koffi.load('kernel32.dll');
-const user32Lib = koffi.load('user32.dll');
-
 
 const { electronApp, optimizer } = require('@electron-toolkit/utils')
 
@@ -25,42 +21,6 @@ const isDevelopment = process.env.NODE_ENV === "development";
 app.commandLine.appendSwitch('disable-features', 'WidgetLayering');
 
 
-const user32 = {
-    /* 
-    HANDLE LoadImageW(
-      [in, optional] HINSTANCE hInst,
-      [in]           LPCWSTR   name,
-      [in]           UINT      type,
-      [in]           int       cx,
-      [in]           int       cy,
-      [in]           UINT      fuLoad
-    );
-    */
-    LoadImageW: user32Lib.stdcall('LoadImageW', 'HANDLE *', [
-      'HANDLE *', 'string', 'uint', 'int', 'int', 'uint',
-    ]),
-    /* 
-    BOOL SetSystemCursor(
-      [in] HCURSOR hcur,
-      [in] DWORD   id
-    );
-    */
-    SetSystemCursor: user32Lib.stdcall('SetSystemCursor', 'bool', [
-      'HWND','uint',
-    ]),
-    /*
-    BOOL SystemParametersInfoW(
-      [in]      UINT  uiAction,
-      [in]      UINT  uiParam,
-      [in, out] PVOID pvParam,
-      [in]      UINT  fWinIni
-    );
-    */
-    SystemParametersInfoW: user32Lib.stdcall('SystemParametersInfoW', 'bool', [
-      'uint', 'uint', 'void *', 'uint',
-    ]),
-  };
-  
 
 function createWindow() {
     // Create a new window

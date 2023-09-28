@@ -2,7 +2,7 @@ const koffi = require('koffi');
 const sharp = require('sharp');
 
 const BufferHelper  = require( './buffer-helper.js');
-
+const DataTypes  =  require('./type.js');
 
 const kernel32Lib = koffi.load('kernel32.dll');
 const user32Lib = koffi.load('user32.dll');
